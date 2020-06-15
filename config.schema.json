@@ -1,0 +1,16 @@
+{
+  "pluginAlias": "StandingDeskPlugin",
+  "pluginType": "accessory",
+  "singular": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "required": true,
+        "default": "Office Standing Desk"
+      }
+    }
+  }
+}
