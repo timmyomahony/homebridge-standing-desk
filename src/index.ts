@@ -10,13 +10,12 @@ import {
   Logging,
   Service
 } from "homebridge";
-import {
-  up,
-  down,
-  finished
-} from "./switch";
+
+const redis = require("redis");
+
 
 let hap: HAP;
+const subscriber = redis.createClient();
 
 export = (api: API) => {
   hap = api.hap;
@@ -44,9 +43,11 @@ class StandingDeskPlugin implements AccessoryPlugin {
       .on(CharacteristicEventTypes.SET, (value: CharacteristicValue, callback: CharacteristicSetCallback) => {
         this.switchOn = value as boolean;
         if (this.switchOn) {
-          up(12500);
+          // Send "up_preset" to redis
+          subscriber.publish('standing_desk', 'up_preset');
         } else {
-          down(9000);
+          // Send "bottom_preset" to redis
+          subscriber.publish('standing_desk', 'down_preset');
         }
         log.info("Switch state was set to: " + (this.switchOn? "ON": "OFF"));
         callback();
