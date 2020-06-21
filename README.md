@@ -1,6 +1,6 @@
 A homebridge plugin to allow control of my Conset 501-49 standing desk via [my Raspberry Pi standing desk controller](https://github.com/timmyomahony/standing-desk/). 
 
-![Screenshot of switch](./resources/Screenshot 2020-06-21 at 14.33.20.jpg)
+<img src="https://raw.githubusercontent.com/timmyomahony/homebridge-standing-desk/master/resources/Screenshot%202020-06-21%20at%2014.33.20.jpg" style="max-width=300px">
 
 This plugin provides a switch Accessory with an on (i.e. "up") and off (i.e. "down") position that allows the raising and lowering of my desk via Home.app. The plugin doesn't handle any of the Raspberry Pi logic. Instead it simply sends a message to Redis.
 
